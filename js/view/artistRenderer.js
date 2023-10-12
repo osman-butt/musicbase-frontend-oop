@@ -9,4 +9,11 @@ export class ArtistRenderer extends ItemRenderer {
     </article>`;
     return html;
   }
+  postRender(element) {
+    element.addEventListener("click", () => {
+      const event = new Event("showArtist");
+      event.artist = this.item;
+      document.dispatchEvent(event);
+    });
+  }
 }
