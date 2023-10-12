@@ -6,26 +6,39 @@ import { Album } from "../model/album.js";
 // and conversion to model classes
 export class RestAPI {
   constructor() {
-    this.endpoint = "http://localhost:3000/api/v2";
     this.artistList = [];
     this.songList = [];
     this.albumList = [];
   }
+  static endpoint = "http://localhost:3000/api/v2";
   // Get data
   async fetchSongs() {
-    const resp = await fetch(`${this.endpoint}/songs`);
+    const resp = await fetch(`${RestAPI.endpoint}/songs`);
     const data = await resp.json();
     return data;
   }
   async fetchArtists() {
-    const resp = await fetch(`${this.endpoint}/artists/`);
+    const resp = await fetch(`${RestAPI.endpoint}/artists/`);
     const data = await resp.json();
     return data;
   }
   async fetchAlbums() {
-    const resp = await fetch(`${this.endpoint}/albums`);
+    const resp = await fetch(`${RestAPI.endpoint}/albums`);
     const data = await resp.json();
     return data;
+  }
+  static async #updateArtistFetch(id, body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
+      method: "PUT",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("UPDATED ARTIST");
+    }
   }
   // Fetch and convert to model
   async #getArtistList() {
@@ -91,5 +104,14 @@ export class RestAPI {
     await this.#getArtistList();
     await this.#getSongList();
     await this.#getAlbumList();
+  }
+  static async updateArtist(artist) {
+    const id = artist.artistId;
+    const body = {
+      artistName: artist.artistName,
+      artistImage: artist.artistImage,
+      artistDescription: artist.artistDescription,
+    };
+    await RestAPI.#updateArtistFetch(id, body);
   }
 }
