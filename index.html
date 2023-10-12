@@ -12,9 +12,84 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.svg" />
     <title>MusicBase</title>
   </head>
   <body>
+    <nav id="sidebar">
+      <div id="logo">
+        <img src="./assets/images/logo.svg" alt="logo" />
+        <p id="logo-text">MusicBase</p>
+      </div>
+      <div id="sidebar-links" class="hidden">
+        <a href="#"><i class="fas fa-folder-open"></i> Library</a>
+        <a href="#">
+          <button data-action="create" id="createDialog" class="simple-btn">
+            <i class="fas fa-plus"></i> CREATE
+          </button>
+        </a>
+      </div>
+    </nav>
+    <main>
+      <section id="content-container">
+        <div id="header-container">
+          <h1>Library</h1>
+          <section id="search-container">
+            <label for="search"></label>
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search..."
+            />
+            <button type="submit" id="search-btn" class="button">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </section>
+        </div>
+        <section id="data-container">
+          <section id="artists-song-container">
+            <section id="artists-container">
+              <!-- Artists items goes here             -->
+            </section>
+            <section id="songs-container" class="vertical-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <td></td>
+                    <td></td>
+                    <th>Duration</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Song Rows go here -->
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <table class="albums-container">
+            <thead>
+              <tr>
+                <th class="col-1">Name</th>
+                <th></th>
+                <th>#Songs</th>
+                <th>ReleaseDate</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Album Rows go here -->
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
     <script type="module" src="app.js"></script>
   </body>
 </html>
