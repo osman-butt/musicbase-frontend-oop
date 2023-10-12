@@ -246,3 +246,8 @@ tr {
   height: 140px;
   border-radius: 100%;
 }
+
+.artist-item p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
