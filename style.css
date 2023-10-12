@@ -1,0 +1,15 @@
+:root {
+  --secondary-color: rgb(202, 202, 202);
+  /* --secondary-color: #0000ff; */
+  --primary-color: #f8f7f3;
+  --accent-color: #fcccff;
+  --font-color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+}
