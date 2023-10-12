@@ -236,3 +236,13 @@ tr {
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 4px solid var(--primary-color); /* creates padding around scroll thumb */
 }
+
+.artist-item {
+  text-align: center;
+}
+
+.artist-item img {
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+}
