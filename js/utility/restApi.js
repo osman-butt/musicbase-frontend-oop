@@ -28,7 +28,7 @@ export class RestAPI {
     return data;
   }
   // Fetch and convert to model
-  async #setArtistList() {
+  async #getArtistList() {
     const artists = await this.fetchArtists();
     const artistList = artists.map(
       artist =>
@@ -41,7 +41,7 @@ export class RestAPI {
     );
     this.artistList = artistList;
   }
-  async #setSongList() {
+  async #getSongList() {
     const songs = await this.fetchSongs();
     const songList = [];
     for (const song of songs) {
@@ -59,7 +59,7 @@ export class RestAPI {
     }
     this.songList = songList;
   }
-  async #setAlbumList() {
+  async #getAlbumList() {
     const albums = await this.fetchAlbums();
     const albumList = [];
     for (const album of albums) {
@@ -87,9 +87,9 @@ export class RestAPI {
     }
     this.albumList = albumList;
   }
-  async setDataLists() {
-    await this.#setArtistList();
-    await this.#setSongList();
-    await this.#setAlbumList();
+  async getDataLists() {
+    await this.#getArtistList();
+    await this.#getSongList();
+    await this.#getAlbumList();
   }
 }

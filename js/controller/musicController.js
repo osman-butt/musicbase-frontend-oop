@@ -11,7 +11,7 @@ export class MusicController {
   }
   async setDataLists() {
     const api = new RestAPI();
-    await api.setDataLists();
+    await api.getDataLists();
     this.artistList = api.artistList;
     this.songList = api.songList;
     this.albumList = api.albumList;
