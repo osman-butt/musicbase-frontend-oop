@@ -1,4 +1,4 @@
-export default class ListRenderer {
+export class ListRenderer {
   constructor(list, container, itemRenderer) {
     this.itemRenderer = itemRenderer;
     this.container = document.querySelector(container);
@@ -18,7 +18,7 @@ export default class ListRenderer {
     this.clear();
 
     // create a filtered list to render
-    const filteredList = this.list;
+    const filteredList = this.items;
 
     for (const itemRenderer of filteredList) {
       const html = itemRenderer.render();
