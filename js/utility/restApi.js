@@ -27,6 +27,19 @@ export class RestAPI {
     const data = await resp.json();
     return data;
   }
+  static async #updateArtistFetch(id, body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
+      method: "PUT",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("DELETED ARTIST");
+    }
+  }
   static async #deleteArtistFetch(id) {
     const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
       method: "DELETE",
@@ -38,9 +51,9 @@ export class RestAPI {
       console.log("UPDATED ARTIST");
     }
   }
-  static async #updateArtistFetch(id, body) {
+  static async #updateSongFetch(id, body) {
     const json = JSON.stringify(body);
-    const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
+    const response = await fetch(`${RestAPI.endpoint}/songs/${id}`, {
       method: "PUT",
       body: json,
       headers: {
@@ -48,7 +61,18 @@ export class RestAPI {
       },
     });
     if (response.ok) {
-      console.log("UPDATED ARTIST");
+      console.log("UPDATED SONG");
+    }
+  }
+  static async #deleteSongFetch(id) {
+    const response = await fetch(`${RestAPI.endpoint}/songs/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("DELETED SONG");
     }
   }
   // Fetch and convert to model
@@ -128,5 +152,17 @@ export class RestAPI {
   static async deleteArtist(artist) {
     const id = artist.artistId;
     await RestAPI.#deleteArtistFetch(id);
+  }
+  static async updateSong(song) {
+    const id = song.songId;
+    const body = {
+      songName: song.songName,
+      songDuration: song.durationToString(),
+    };
+    await RestAPI.#updateSongFetch(id, body);
+  }
+  static async deleteSong(song) {
+    const id = song.songId;
+    await RestAPI.#deleteSongFetch(id);
   }
 }

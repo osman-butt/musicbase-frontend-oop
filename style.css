@@ -38,6 +38,32 @@ body::-webkit-scrollbar-thumb {
   outline: inherit;
 }
 
+.button {
+  border-radius: 1em;
+  border: none;
+  padding: 0.7em;
+  background-color: var(--accent-color);
+  color: var(--font-color);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.cancel-button {
+  border-radius: 1em;
+  border: none;
+  padding: 0.7em;
+  /* background-color: rgb(167, 75, 75); */
+  color: var(--font-color);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.button:hover,
+.cancel-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 /* Navigation bar */
 nav {
   background-color: var(--secondary-color);
@@ -131,21 +157,6 @@ input[type="search"] {
 
 input[type="search"]:focus {
   width: 250px;
-}
-
-.button {
-  border-radius: 1em;
-  border: none;
-  padding: 0.7em;
-  background-color: var(--accent-color);
-  color: var(--font-color);
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.button:hover {
-  opacity: 0.8;
-  cursor: pointer;
 }
 
 @media (min-width: 900px) {
