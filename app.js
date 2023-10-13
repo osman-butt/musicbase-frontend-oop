@@ -2,6 +2,7 @@ import { RestAPI } from "./js/utility/restApi.js";
 import { ListRenderer } from "./js/view/listRender/listRenderer.js";
 import { ArtistRenderer } from "./js/view/listRender/artistRenderer.js";
 import { SongRenderer } from "./js/view/listRender/songRenderer.js";
+import { AlbumRenderer } from "./js/view/listRender/albumRenderer.js";
 import { ArtistUpdateDialog } from "./js/view/dialog/artistUpdateDialog.js";
 import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
@@ -49,6 +50,13 @@ async function renderLists() {
     SongRenderer
   );
   songsView.render();
+
+  const albumView = new ListRenderer(
+    albumList,
+    "#albums-container tbody",
+    AlbumRenderer
+  );
+  albumView.render();
 }
 
 function renderDialogs() {
