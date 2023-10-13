@@ -251,3 +251,19 @@ tr {
   text-decoration: underline;
   cursor: pointer;
 }
+
+dialog {
+  border: none;
+  border-radius: 1em;
+  width: 40vw;
+}
+
+#details {
+  display: grid;
+  grid-template-columns: 160px auto;
+  column-gap: 1em;
+}
+
+#details-artistImage {
+  grid-row: 1 / span 3;
+}

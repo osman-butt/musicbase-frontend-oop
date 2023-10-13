@@ -1,5 +1,5 @@
-import { ItemRenderer } from "./itemRenderer.js";
-import * as controller from "../../app.js";
+import { ItemRenderer } from "../itemRenderer.js";
+import * as controller from "../../../app.js";
 export class ArtistRenderer extends ItemRenderer {
   render() {
     const artist = this.item;
@@ -7,8 +7,8 @@ export class ArtistRenderer extends ItemRenderer {
     <article class="artist-item" data-action=''>
         <img src=${
           artist?.artistImage ? artist?.artistImage : ""
-        } alt="" data-action='update'>
-        <p data-action='update'>${artist.artistName}</p>
+        } alt="" data-action='show'>
+        <p data-action='show'>${artist.artistName}</p>
     </article>`;
     return html;
   }
@@ -21,6 +21,8 @@ export class ArtistRenderer extends ItemRenderer {
       if (action === "update") {
         // ask controller to start update view
         controller.selectArtistForUpdate(artist);
+      } else if (action === "show") {
+        controller.selectArtistForDetails(artist);
       }
     });
   }
