@@ -28,9 +28,9 @@ export class SongRenderer extends ItemRenderer {
       // Handle action - as defined in data-action="..."
       if (action === "update") {
         // ask controller to start update view
-        controller.selectArtistForUpdate(song);
-      } else if (action === "show") {
-        controller.selectArtistForDetails(song);
+        controller.selectSongForUpdate(song);
+      } else if (action === "delete") {
+        controller.selectSongForDelete(song);
       }
     });
   }
