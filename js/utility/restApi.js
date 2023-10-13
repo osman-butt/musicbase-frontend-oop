@@ -27,6 +27,17 @@ export class RestAPI {
     const data = await resp.json();
     return data;
   }
+  static async #deleteArtistFetch(id) {
+    const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("UPDATED ARTIST");
+    }
+  }
   static async #updateArtistFetch(id, body) {
     const json = JSON.stringify(body);
     const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
@@ -113,5 +124,9 @@ export class RestAPI {
       artistDescription: artist.artistDescription,
     };
     await RestAPI.#updateArtistFetch(id, body);
+  }
+  static async deleteArtist(artist) {
+    const id = artist.artistId;
+    await RestAPI.#deleteArtistFetch(id);
   }
 }

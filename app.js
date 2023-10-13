@@ -52,4 +52,9 @@ async function updateArtist(artist) {
   await initViews();
 }
 
-export { selectArtistForUpdate, updateArtist };
+async function deleteArtist(artist) {
+  await RestAPI.deleteArtist(artist);
+  await initViews();
+}
+
+export { selectArtistForUpdate, updateArtist, deleteArtist };
