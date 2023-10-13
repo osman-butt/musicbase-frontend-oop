@@ -266,6 +266,14 @@ tr {
   cursor: pointer;
 }
 
+#img-col {
+  width: 90px;
+  height: 90px;
+  border-radius: 1em;
+  margin: 0.6em;
+}
+
+/* DIALOGS */
 dialog {
   border: none;
   border-radius: 1em;
@@ -280,4 +288,11 @@ dialog {
 
 #details-artistImage {
   grid-row: 1 / span 3;
+}
+
+.fa-trash {
+  color: rgba(255, 78, 78, 0.7);
+}
+.fa-edit {
+  color: rgba(36, 155, 36, 0.7);
 }
