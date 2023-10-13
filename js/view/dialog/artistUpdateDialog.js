@@ -8,10 +8,10 @@ export class ArtistUpdateDialog extends Dialog {
       /*HTML*/
       `<h1>Update artist</h1>
       <form action="" method="dialog" id="update-form">
-        <label for="update-artistName">Name:</label> <input type="text" id="update-artistName" name="artistName" placeholder="The animal's name - e.g. John">
-        <label for="update-artistImage">Image:</label> <input type="text" id="update-artistImage" name="artistImage" placeholder="The animal's type - e.g. dog">
+        <label for="update-artistName">Name:</label> <input type="text" id="update-artistName" name="artistName">
+        <label for="update-artistImage">Image:</label> <input type="text" id="update-artistImage" name="artistImage">
         <label for="update-artistDescription">Description:</label> <input type="text" id="update-artistDescription" name="artistDescription">
-        <button data-action="update">Update</button>
+        <button class="button" data-action="update">Update</button>
       </form>`;
 
     return html;
