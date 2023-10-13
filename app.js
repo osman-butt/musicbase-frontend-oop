@@ -1,6 +1,6 @@
 import { RestAPI } from "./js/utility/restApi.js";
-import { ListRenderer } from "./js/view/listRenderer.js";
-import { ArtistRenderer } from "./js/view/dialog/artistRenderer.js";
+import { ListRenderer } from "./js/view/listRender/listRenderer.js";
+import { ArtistRenderer } from "./js/view/listRender/artistRenderer.js";
 import { ArtistUpdateDialog } from "./js/view/dialog/artistUpdateDialog.js";
 import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";

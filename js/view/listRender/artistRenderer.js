@@ -1,4 +1,4 @@
-import { ItemRenderer } from "../itemRenderer.js";
+import { ItemRenderer } from "./itemRenderer.js";
 import * as controller from "../../../app.js";
 export class ArtistRenderer extends ItemRenderer {
   render() {
