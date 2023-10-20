@@ -27,6 +27,19 @@ export class RestAPI {
     const data = await resp.json();
     return data;
   }
+  static async #createArtistFetch(body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/artists`, {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("CREATED ARTIST");
+    }
+  }
   static async #updateArtistFetch(id, body) {
     const json = JSON.stringify(body);
     const response = await fetch(`${RestAPI.endpoint}/artists/${id}`, {
@@ -37,7 +50,7 @@ export class RestAPI {
       },
     });
     if (response.ok) {
-      console.log("DELETED ARTIST");
+      console.log("UPDATED ARTIST");
     }
   }
   static async #deleteArtistFetch(id) {
@@ -48,7 +61,7 @@ export class RestAPI {
       },
     });
     if (response.ok) {
-      console.log("UPDATED ARTIST");
+      console.log("DELETED ARTIST");
     }
   }
   static async #updateSongFetch(id, body) {
@@ -163,6 +176,14 @@ export class RestAPI {
     await this.#getArtistList();
     await this.#getSongList();
     await this.#getAlbumList();
+  }
+  static async createArtist(artist) {
+    const body = {
+      artistName: artist.artistName,
+      artistImage: artist.artistImage,
+      artistDescription: artist.artistDescription,
+    };
+    await RestAPI.#createArtistFetch(body);
   }
   static async updateArtist(artist) {
     const id = artist.artistId;

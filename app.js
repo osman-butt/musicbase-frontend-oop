@@ -3,6 +3,7 @@ import { ListRenderer } from "./js/view/listRender/listRenderer.js";
 import { ArtistRenderer } from "./js/view/listRender/artistRenderer.js";
 import { SongRenderer } from "./js/view/listRender/songRenderer.js";
 import { AlbumRenderer } from "./js/view/listRender/albumRenderer.js";
+import { ArtistCreateDialog } from "./js/view/dialog/artistCreateDialog.js";
 import { ArtistUpdateDialog } from "./js/view/dialog/artistUpdateDialog.js";
 import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
@@ -19,6 +20,7 @@ let songList = [];
 let albumList = [];
 
 // View
+let createArtistDialog = null;
 let updateArtistDialog = null;
 let detailArtistDialog = null;
 let deleteArtistDialog = null;
@@ -65,6 +67,16 @@ async function renderLists() {
 
 function renderDialogs() {
   // Create dialogs and render
+  createArtistDialog = new ArtistCreateDialog("create-artist-dialog");
+  createArtistDialog.render();
+
+  document
+    .querySelector("#createDialog")
+    .addEventListener(
+      "click",
+      createArtistDialog.show.bind(createArtistDialog)
+    );
+
   updateArtistDialog = new ArtistUpdateDialog("update-artist-dialog");
   updateArtistDialog.render();
 
@@ -140,6 +152,10 @@ function selectAlbumForDelete(album) {
 
 // CREATE OPERATIONS
 // --- CREATE OPERATIONS GOES HERE ---
+async function createArtist(artist) {
+  await RestAPI.createArtist(artist);
+  renderLists();
+}
 
 // UPDATE OPERATIONS
 async function updateArtist(artist) {
@@ -177,6 +193,7 @@ export {
   selectArtistForDetails,
   selectArtistForUpdate,
   selectArtistForDelete,
+  createArtist,
   updateArtist,
   deleteArtist,
   selectSongForUpdate,
