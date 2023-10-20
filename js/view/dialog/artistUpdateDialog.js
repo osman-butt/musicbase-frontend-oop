@@ -6,7 +6,8 @@ export class ArtistUpdateDialog extends Dialog {
   renderHTML() {
     const html =
       /*HTML*/
-      `<h1>Update artist</h1>
+      `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
+      <h1>Update artist</h1>
       <form action="" method="dialog" id="update-form">
         <label for="update-artistName">Name:</label> <input type="text" id="update-artistName" name="artistName">
         <label for="update-artistImage">Image:</label> <input type="text" id="update-artistImage" name="artistImage">

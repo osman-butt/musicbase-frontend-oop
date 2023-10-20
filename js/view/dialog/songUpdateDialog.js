@@ -5,7 +5,8 @@ export class SongUpdateDialog extends Dialog {
   renderHTML() {
     const html =
       /*HTML*/
-      `<h1>Update song</h1>
+      `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
+      <h1>Update song</h1>
       <form action="" method="dialog" id="update-form">
         <label for="update-songName">Name:</label> <input type="text" id="update-songName" name="songName" >
         <label for="update-songDuration">Duration:</label> <input type="text" id="update-songDescription" name="songDuration">

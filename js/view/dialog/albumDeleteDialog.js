@@ -5,7 +5,8 @@ export class AlbumDeleteDialog extends Dialog {
   renderHTML() {
     const html =
       /*HTML*/
-      `<h1>Delete artist?</h1>
+      `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
+      <h1>Delete artist?</h1>
       <p>Are you sure you want to delete the album "<span id="delete-album-name"></span>"?</p>
       <form action="" method="dialog" id="delete-form">
         <button class="cancel-button" type="button" data-action="cancel">Cancel</button>
