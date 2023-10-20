@@ -1,12 +1,12 @@
 import { Dialog } from "./dialog.js";
 import * as controller from "../../../app.js";
 
-export class ArtistDeleteDialog extends Dialog {
+export class AlbumDeleteDialog extends Dialog {
   renderHTML() {
     const html =
       /*HTML*/
       `<h1>Delete artist?</h1>
-      <p>Are you sure you want to delete the artist "<span id="delete-artist-name"></span>"?</p>
+      <p>Are you sure you want to delete the album "<span id="delete-album-name"></span>"?</p>
       <form action="" method="dialog" id="delete-form">
         <button class="cancel-button" type="button" data-action="cancel">Cancel</button>
         <button class="button" type="submit" data-action="delete">Delete</button>
@@ -15,13 +15,13 @@ export class ArtistDeleteDialog extends Dialog {
     return html;
   }
 
-  setArtist(artist) {
-    this.artist = artist;
-    document.querySelector("#delete-artist-name").innerHTML = artist.artistName;
+  setAlbum(album) {
+    this.album = album;
+    document.querySelector("#delete-album-name").innerHTML = album.albumName;
   }
 
   delete() {
     // call controller - NOTE: In a 'true' MVC the controller would register an event listener on the view, and get notified that way.
-    controller.deleteArtist(this.artist);
+    controller.deleteAlbum(this.album);
   }
 }

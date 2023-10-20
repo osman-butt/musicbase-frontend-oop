@@ -8,6 +8,8 @@ import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
 import { SongUpdateDialog } from "./js/view/dialog/songUpdateDialog.js";
 import { SongDeleteDialog } from "./js/view/dialog/songDeleteDialog.js";
+import { AlbumUpdateDialog } from "./js/view/dialog/albumUpdateDialog.js";
+import { AlbumDeleteDialog } from "./js/view/dialog/albumDeleteDialog.js";
 
 window.addEventListener("load", initApp);
 
@@ -22,6 +24,8 @@ let detailArtistDialog = null;
 let deleteArtistDialog = null;
 let updateSongDialog = null;
 let deleteSongDialog = null;
+let updateAlbumDialog = null;
+let deleteAlbumDialog = null;
 
 async function initApp() {
   console.log("App.js is running 🎉");
@@ -63,8 +67,10 @@ function renderDialogs() {
   // Create dialogs and render
   updateArtistDialog = new ArtistUpdateDialog("update-artist-dialog");
   updateArtistDialog.render();
+
   detailArtistDialog = new ArtistDetailsDialog("details-artist-dialog");
   detailArtistDialog.render();
+
   deleteArtistDialog = new ArtistDeleteDialog("delete-artist-dialog");
   deleteArtistDialog.render();
 
@@ -73,6 +79,12 @@ function renderDialogs() {
 
   deleteSongDialog = new SongDeleteDialog("delete-song-dialog");
   deleteSongDialog.render();
+
+  updateAlbumDialog = new AlbumUpdateDialog("update-album-dialog");
+  updateAlbumDialog.render();
+
+  deleteAlbumDialog = new AlbumDeleteDialog("delete-album-dialog");
+  deleteAlbumDialog.render();
 }
 
 async function getData() {
@@ -104,6 +116,11 @@ function selectSongForUpdate(song) {
   updateSongDialog.show();
 }
 
+function selectAlbumForUpdate(album) {
+  updateAlbumDialog.setAlbum(album);
+  updateAlbumDialog.show();
+}
+
 // Delete Dialogs
 function selectArtistForDelete(artist) {
   detailArtistDialog.close();
@@ -114,6 +131,11 @@ function selectArtistForDelete(artist) {
 function selectSongForDelete(song) {
   deleteSongDialog.setSong(song);
   deleteSongDialog.show();
+}
+
+function selectAlbumForDelete(album) {
+  deleteAlbumDialog.setAlbum(album);
+  deleteAlbumDialog.show();
 }
 
 // CREATE OPERATIONS
@@ -130,6 +152,11 @@ async function updateSong(song) {
   renderLists();
 }
 
+async function updateAlbum(album) {
+  await RestAPI.updateAlbum(album);
+  renderLists();
+}
+
 // DELETE OPERATIONS
 async function deleteArtist(artist) {
   await RestAPI.deleteArtist(artist);
@@ -138,6 +165,11 @@ async function deleteArtist(artist) {
 
 async function deleteSong(song) {
   await RestAPI.deleteSong(song);
+  renderLists();
+}
+
+async function deleteAlbum(album) {
+  await RestAPI.deleteAlbum(album);
   renderLists();
 }
 
@@ -151,4 +183,8 @@ export {
   selectSongForDelete,
   updateSong,
   deleteSong,
+  selectAlbumForUpdate,
+  selectAlbumForDelete,
+  updateAlbum,
+  deleteAlbum,
 };

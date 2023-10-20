@@ -11,8 +11,8 @@ export class AlbumRenderer extends ItemRenderer {
         <p style="opacity: 0.8;">${album.artistsToString()}</p></td>
       <td>${album.countSongs()}</td>
       <td>${album.albumReleaseDate.toLocaleString("da-DK", dateConfig)}</td>
-      <td><button class="simple-btn"><i class="fas fa-trash"></i></button></td>
-      <td><button class="simple-btn"><i class="fas fa-edit"></i></button></td>
+      <td><button class="simple-btn"><i class="fas fa-trash"  data-action="delete"></i></button></td>
+      <td><button class="simple-btn"><i class="fas fa-edit" data-action="update"></i></button></td>
       </tr>`;
     return html;
   }
@@ -24,9 +24,9 @@ export class AlbumRenderer extends ItemRenderer {
       // Handle action - as defined in data-action="..."
       if (action === "update") {
         // ask controller to start update view
-        controller.selectSongForUpdate(song);
+        controller.selectAlbumForUpdate(song);
       } else if (action === "delete") {
-        controller.selectSongForDelete(song);
+        controller.selectAlbumForDelete(song);
       }
     });
   }

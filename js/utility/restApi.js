@@ -75,6 +75,30 @@ export class RestAPI {
       console.log("DELETED SONG");
     }
   }
+  static async #updateAlbumFetch(id, body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/albums/${id}`, {
+      method: "PUT",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("UPDATED ALBUM");
+    }
+  }
+  static async #deleteAlbumFetch(id) {
+    const response = await fetch(`${RestAPI.endpoint}/albums/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("DELETED ALBUM");
+    }
+  }
   // Fetch and convert to model
   async #getArtistList() {
     const artists = await this.fetchArtists();
@@ -164,5 +188,18 @@ export class RestAPI {
   static async deleteSong(song) {
     const id = song.songId;
     await RestAPI.#deleteSongFetch(id);
+  }
+  static async updateAlbum(album) {
+    const id = album.albumId;
+    const body = {
+      albumName: album.albumName,
+      albumImage: album.albumImage,
+      albumReleaseDate: album.albumReleaseDate,
+    };
+    await RestAPI.#updateAlbumFetch(id, body);
+  }
+  static async deleteAlbum(album) {
+    const id = album.albumId;
+    await RestAPI.#deleteAlbumFetch(id);
   }
 }
