@@ -88,6 +88,19 @@ export class RestAPI {
       console.log("DELETED SONG");
     }
   }
+  static async #createAlbumFetch(body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/albums`, {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("CREATED ALBUM");
+    }
+  }
   static async #updateAlbumFetch(id, body) {
     const json = JSON.stringify(body);
     const response = await fetch(`${RestAPI.endpoint}/albums/${id}`, {
@@ -209,6 +222,16 @@ export class RestAPI {
   static async deleteSong(song) {
     const id = song.songId;
     await RestAPI.#deleteSongFetch(id);
+  }
+  static async createAlbum(album) {
+    const body = {
+      albumName: album.albumName,
+      albumImage: album.albumImage,
+      albumReleaseDate: album.albumReleaseDate.toISOString().split("T")[0],
+      artists: album.artists.map(artist => artist.artistId),
+      songs: [],
+    };
+    await RestAPI.#createAlbumFetch(body);
   }
   static async updateAlbum(album) {
     const id = album.albumId;

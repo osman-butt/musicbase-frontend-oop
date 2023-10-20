@@ -9,6 +9,7 @@ import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
 import { SongUpdateDialog } from "./js/view/dialog/songUpdateDialog.js";
 import { SongDeleteDialog } from "./js/view/dialog/songDeleteDialog.js";
+import { AlbumCreateDialog } from "./js/view/dialog/albumCreateDialog.js";
 import { AlbumUpdateDialog } from "./js/view/dialog/albumUpdateDialog.js";
 import { AlbumDeleteDialog } from "./js/view/dialog/albumDeleteDialog.js";
 
@@ -26,6 +27,7 @@ let detailArtistDialog = null;
 let deleteArtistDialog = null;
 let updateSongDialog = null;
 let deleteSongDialog = null;
+let createAlbumDialog = null;
 let updateAlbumDialog = null;
 let deleteAlbumDialog = null;
 
@@ -71,7 +73,7 @@ function renderDialogs() {
   createArtistDialog.render();
 
   document
-    .querySelector("#createDialog")
+    .querySelector("#createArtistDialog")
     .addEventListener(
       "click",
       createArtistDialog.show.bind(createArtistDialog)
@@ -91,6 +93,15 @@ function renderDialogs() {
 
   deleteSongDialog = new SongDeleteDialog("delete-song-dialog");
   deleteSongDialog.render();
+
+  createAlbumDialog = new AlbumCreateDialog("create-album-dialog");
+  createAlbumDialog.render();
+
+  document.querySelector("#createAlbumDialog").addEventListener("click", () => {
+    createAlbumDialog.setArtistsDropdown(artistList);
+    createAlbumDialog.show.bind(createAlbumDialog);
+    createAlbumDialog.show();
+  });
 
   updateAlbumDialog = new AlbumUpdateDialog("update-album-dialog");
   updateAlbumDialog.render();
@@ -157,6 +168,12 @@ async function createArtist(artist) {
   renderLists();
 }
 
+async function createAlbum(album) {
+  await RestAPI.createAlbum(album);
+  console.log(album);
+  renderLists();
+}
+
 // UPDATE OPERATIONS
 async function updateArtist(artist) {
   await RestAPI.updateArtist(artist);
@@ -202,6 +219,7 @@ export {
   deleteSong,
   selectAlbumForUpdate,
   selectAlbumForDelete,
+  createAlbum,
   updateAlbum,
   deleteAlbum,
 };

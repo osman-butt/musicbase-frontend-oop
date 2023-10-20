@@ -296,3 +296,26 @@ dialog {
 .fa-edit {
   color: rgba(36, 155, 36, 0.7);
 }
+
+/* FORM */
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Style for input fields */
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+form select {
+  /* min-width: 150px; */
+  width: 100%;
+  display: block;
+  margin-bottom: 1em;
+}
