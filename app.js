@@ -10,6 +10,7 @@ import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
 import { SongCreateDialog } from "./js/view/dialog/songCreateDialog.js";
 import { SongUpdateDialog } from "./js/view/dialog/songUpdateDialog.js";
 import { SongDeleteDialog } from "./js/view/dialog/songDeleteDialog.js";
+import { AlbumDetailsDialog } from "./js/view/dialog/albumDetailsDialog.js";
 import { AlbumCreateDialog } from "./js/view/dialog/albumCreateDialog.js";
 import { AlbumUpdateDialog } from "./js/view/dialog/albumUpdateDialog.js";
 import { AlbumDeleteDialog } from "./js/view/dialog/albumDeleteDialog.js";
@@ -29,6 +30,7 @@ let deleteArtistDialog = null;
 let createSongDialog = null;
 let updateSongDialog = null;
 let deleteSongDialog = null;
+let detailAlbumDialog = null;
 let createAlbumDialog = null;
 let updateAlbumDialog = null;
 let deleteAlbumDialog = null;
@@ -105,6 +107,9 @@ function renderDialogs() {
   deleteSongDialog = new SongDeleteDialog("delete-song-dialog");
   deleteSongDialog.render();
 
+  detailAlbumDialog = new AlbumDetailsDialog("details-artist-dialog");
+  detailAlbumDialog.render();
+
   createAlbumDialog = new AlbumCreateDialog("create-album-dialog");
   createAlbumDialog.render();
 
@@ -137,6 +142,11 @@ async function getData() {
 function selectArtistForDetails(artist) {
   detailArtistDialog.setArtist(artist);
   detailArtistDialog.show();
+}
+
+function selectAlbumForDetails(album) {
+  detailAlbumDialog.setAlbum(album);
+  detailAlbumDialog.show();
 }
 
 // Update Dialogs
@@ -226,8 +236,17 @@ async function deleteAlbum(album) {
   renderLists();
 }
 
+async function selectSongToRemoveFromAlbum(song) {
+  detailAlbumDialog.removeSongFromAlbum(song);
+  await RestAPI.updateAlbum(detailAlbumDialog.album);
+  detailAlbumDialog.render();
+  detailAlbumDialog.setAlbum(detailAlbumDialog.album);
+  renderLists();
+}
+
 export {
   selectArtistForDetails,
+  selectAlbumForDetails,
   selectArtistForUpdate,
   selectArtistForDelete,
   createArtist,
@@ -243,4 +262,5 @@ export {
   createAlbum,
   updateAlbum,
   deleteAlbum,
+  selectSongToRemoveFromAlbum,
 };

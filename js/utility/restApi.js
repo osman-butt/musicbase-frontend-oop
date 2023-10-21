@@ -259,7 +259,10 @@ export class RestAPI {
     const body = {
       albumName: album.albumName,
       albumImage: album.albumImage,
-      albumReleaseDate: album.albumReleaseDate,
+      albumReleaseDate:
+        album.albumReleaseDate instanceof Date
+          ? album.albumReleaseDate.toISOString().split("T")[0]
+          : album.albumReleaseDate,
       artists: album.artists.map(a => a.artistId),
       songs: album.songs.map(s => s.songId),
     };

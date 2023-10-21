@@ -22,6 +22,11 @@ export class Album {
     this.songs.push(song);
   }
 
+  removeSong(song) {
+    const updatedSongs = this.songs.filter(s => s.songId !== song.songId);
+    this.songs = updatedSongs;
+  }
+
   countSongs() {
     return this.songs.length;
   }
