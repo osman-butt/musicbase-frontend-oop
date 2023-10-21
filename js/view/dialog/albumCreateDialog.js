@@ -21,8 +21,9 @@ export class AlbumCreateDialog extends Dialog {
             placeholder="YYYY-MM-DD"
           />
           <label for="create-album-artists">Select artists:</label>
-          <select multiple name="createalbumartists" id="create-album-artists">
-          </select>
+          <select multiple name="createalbumartists" id="create-album-artists"></select>
+          <label for="create-album-songs">Select songs:</label>
+          <select multiple name="createalbumsongs" id="create-album-songs"></select>
           <button class="button" data-action="create">Create</button>
         </form>`;
 
@@ -41,6 +42,19 @@ export class AlbumCreateDialog extends Dialog {
     }
   }
 
+  setSongsDropdown(songs) {
+    this.listOfSongs = songs;
+    for (const song of songs) {
+      const html = /*html*/ `
+        <option value="${song.songId}">${song.songName} - BY: ${song.artists
+        .map(a => a.artistName)
+        .toString()}</option>`;
+      document
+        .querySelector("#create-album-songs")
+        .insertAdjacentHTML("beforeend", html);
+    }
+  }
+
   create() {
     // Build animal-object from form - store in component for later use
     const form = this.dialog.querySelector("form");
@@ -55,13 +69,28 @@ export class AlbumCreateDialog extends Dialog {
 
     // Add artist(s) to albums object
     const artists = this.listOfArtists;
-    const selectElement = form.createalbumartists;
+    const selectArtistElement = form.createalbumartists;
 
-    for (let i = 0; i < selectElement.options.length; i++) {
-      if (selectElement.options[i].selected) {
+    for (let i = 0; i < selectArtistElement.options.length; i++) {
+      if (selectArtistElement.options[i].selected) {
         this.album.addArtist(
           artists.filter(
-            artist => artist.artistId === Number(selectElement.options[i].value)
+            artist =>
+              artist.artistId === Number(selectArtistElement.options[i].value)
+          )[0]
+        );
+      }
+    }
+
+    // Add song(s) to albums object
+    const songs = this.listOfSongs;
+    const selectSongElement = form.createalbumsongs;
+
+    for (let i = 0; i < selectSongElement.options.length; i++) {
+      if (selectSongElement.options[i].selected) {
+        this.album.addSong(
+          songs.filter(
+            song => song.songId === Number(selectSongElement.options[i].value)
           )[0]
         );
       }

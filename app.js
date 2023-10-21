@@ -99,6 +99,7 @@ function renderDialogs() {
 
   document.querySelector("#createAlbumDialog").addEventListener("click", () => {
     createAlbumDialog.setArtistsDropdown(artistList);
+    createAlbumDialog.setSongsDropdown(songList);
     createAlbumDialog.show.bind(createAlbumDialog);
     createAlbumDialog.show();
   });

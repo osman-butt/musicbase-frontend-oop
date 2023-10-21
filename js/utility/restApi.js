@@ -229,7 +229,7 @@ export class RestAPI {
       albumImage: album.albumImage,
       albumReleaseDate: album.albumReleaseDate.toISOString().split("T")[0],
       artists: album.artists.map(artist => artist.artistId),
-      songs: [],
+      songs: album.songs.map(song => song.songId),
     };
     await RestAPI.#createAlbumFetch(body);
   }
