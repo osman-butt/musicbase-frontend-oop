@@ -228,6 +228,7 @@ export class RestAPI {
     const body = {
       songName: song.songName,
       songDuration: song.durationToString(),
+      artists: song.artists.map(artist => artist.artistId),
     };
     await RestAPI.#createSongFetch(body);
   }
