@@ -260,6 +260,8 @@ export class RestAPI {
       albumName: album.albumName,
       albumImage: album.albumImage,
       albumReleaseDate: album.albumReleaseDate,
+      artists: album.artists.map(a => a.artistId),
+      songs: album.songs.map(s => s.songId),
     };
     await RestAPI.#updateAlbumFetch(id, body);
   }

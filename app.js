@@ -153,6 +153,8 @@ function selectSongForUpdate(song) {
 
 function selectAlbumForUpdate(album) {
   updateAlbumDialog.setAlbum(album);
+  updateAlbumDialog.setArtistsDropdown(artistList);
+  updateAlbumDialog.setSongsDropdown(songList);
   updateAlbumDialog.show();
 }
 

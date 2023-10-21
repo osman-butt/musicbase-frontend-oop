@@ -25,6 +25,8 @@ export class SongCreateDialog extends Dialog {
 
   setArtistsDropdown(artists) {
     this.listOfArtists = artists;
+    document.querySelector("#create-song-artists").innerHTML = "";
+    document.querySelector("#create-song-feat-artists").innerHTML = "";
     for (const artist of artists) {
       const html = /*html*/ `
         <option value="${artist.artistId}">${artist.artistName}</option>
@@ -39,6 +41,7 @@ export class SongCreateDialog extends Dialog {
   }
 
   setAlbumsDropdown(albums) {
+    document.querySelector("#create-song-albums").innerHTML = "";
     this.listOfAlbums = albums;
     for (const album of albums) {
       const html = /*html*/ `
