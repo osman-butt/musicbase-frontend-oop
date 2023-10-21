@@ -64,6 +64,19 @@ export class RestAPI {
       console.log("DELETED ARTIST");
     }
   }
+  static async #createSongFetch(body) {
+    const json = JSON.stringify(body);
+    const response = await fetch(`${RestAPI.endpoint}/songs`, {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      console.log("CREATED SONG");
+    }
+  }
   static async #updateSongFetch(id, body) {
     const json = JSON.stringify(body);
     const response = await fetch(`${RestAPI.endpoint}/songs/${id}`, {
@@ -210,6 +223,13 @@ export class RestAPI {
   static async deleteArtist(artist) {
     const id = artist.artistId;
     await RestAPI.#deleteArtistFetch(id);
+  }
+  static async createSong(song) {
+    const body = {
+      songName: song.songName,
+      songDuration: song.durationToString(),
+    };
+    await RestAPI.#createSongFetch(body);
   }
   static async updateSong(song) {
     const id = song.songId;

@@ -7,6 +7,7 @@ import { ArtistCreateDialog } from "./js/view/dialog/artistCreateDialog.js";
 import { ArtistUpdateDialog } from "./js/view/dialog/artistUpdateDialog.js";
 import { ArtistDetailsDialog } from "./js/view/dialog/artistDetailsDialog.js";
 import { ArtistDeleteDialog } from "./js/view/dialog/artistDeleteDialog.js";
+import { SongCreateDialog } from "./js/view/dialog/songCreateDialog.js";
 import { SongUpdateDialog } from "./js/view/dialog/songUpdateDialog.js";
 import { SongDeleteDialog } from "./js/view/dialog/songDeleteDialog.js";
 import { AlbumCreateDialog } from "./js/view/dialog/albumCreateDialog.js";
@@ -25,6 +26,7 @@ let createArtistDialog = null;
 let updateArtistDialog = null;
 let detailArtistDialog = null;
 let deleteArtistDialog = null;
+let createSongDialog = null;
 let updateSongDialog = null;
 let deleteSongDialog = null;
 let createAlbumDialog = null;
@@ -87,6 +89,15 @@ function renderDialogs() {
 
   deleteArtistDialog = new ArtistDeleteDialog("delete-artist-dialog");
   deleteArtistDialog.render();
+
+  createSongDialog = new SongCreateDialog("create-song-dialog");
+  createSongDialog.render();
+
+  document.querySelector("#createSongDialog").addEventListener("click", () => {
+    createSongDialog.setArtistsDropdown(artistList);
+    createSongDialog.show.bind(createSongDialog);
+    createSongDialog.show();
+  });
 
   updateSongDialog = new SongUpdateDialog("update-song-dialog");
   updateSongDialog.render();
@@ -175,6 +186,12 @@ async function createAlbum(album) {
   renderLists();
 }
 
+async function createSong(song) {
+  await RestAPI.createSong(song);
+  console.log(song);
+  renderLists();
+}
+
 // UPDATE OPERATIONS
 async function updateArtist(artist) {
   await RestAPI.updateArtist(artist);
@@ -216,6 +233,7 @@ export {
   deleteArtist,
   selectSongForUpdate,
   selectSongForDelete,
+  createSong,
   updateSong,
   deleteSong,
   selectAlbumForUpdate,
