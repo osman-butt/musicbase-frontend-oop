@@ -120,6 +120,7 @@ a {
   display: grid;
   gap: 3em;
   margin: 2em;
+  justify-items: left;
 }
 
 /* Main Content */
