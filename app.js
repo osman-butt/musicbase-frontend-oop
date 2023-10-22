@@ -246,7 +246,6 @@ async function createArtist(artist) {
 
 async function createAlbum(album) {
   await RestAPI.createAlbum(album);
-  console.log(album);
   renderLists();
 }
 
