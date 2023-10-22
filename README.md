@@ -15,7 +15,7 @@ MusicBase is a web application that allows users to search for artists, albums, 
 
 ## Deployed app
 
-* See a live version of the frontend [https://osman-butt.github.io/musicbase-frontend-oop/](https://osman-butt.github.io/musicbase-frontend-oop/)
+* See a live version of the frontend [https://osman-butt.github.io/musicbase-frontend-oop/](https://osman-butt.github.io/musicbase-frontend-oop/) (note that the backend is hosted on Azure - when it is not used for a while, it goes into sleep mode. Update the page a few times, for the server to start up!)
 * Link to deployed backend [https://musicbase-app.azurewebsites.net/api/v2](https://musicbase-app.azurewebsites.net/api/v2)
 * The backend of this project is managed in a separate repository: [https://github.com/osman-butt/musicbase-backend](https://github.com/osman-butt/musicbase-backend).
 
