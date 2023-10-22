@@ -12,24 +12,24 @@ export class AlbumDetailsDialog extends Dialog {
         <h1 id="details-albumName"></h1>
         <img id="details-albumImage" src="" alt="" style="width: 150px; border-radius: 50%; height:150px;" />
         <div id="details-albumReleaseDate"><p></p></div>
-        <div id="album-songlist">
-                      <table>
-                <thead>
-                  <tr>
-                    <th>Song</th>
-                    <td></td>
-                    <td></td>
-                    <th>Duration</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Song Rows go here -->
-                </tbody>
-              </table>
+        <div id="album-songlist" class="vertical-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Song</th>
+                <td></td>
+                <td></td>
+                <th>Duration</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Song Rows go here -->
+            </tbody>
+          </table>
         </div>
         </article>
     `;
