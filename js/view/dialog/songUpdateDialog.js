@@ -20,7 +20,7 @@ export class SongUpdateDialog extends Dialog {
     this.song = song;
     const form = this.dialog.querySelector("form");
     form.songName.value = song.songName;
-    form.songDuration.value = song.songDuration;
+    form.songDuration.value = song.durationToString();
   }
 
   update() {
@@ -28,7 +28,8 @@ export class SongUpdateDialog extends Dialog {
     const form = this.dialog.querySelector("form");
 
     this.song.songName = form.songName.value;
-    this.song.songDuration = form.songDuration.value;
+    this.song.setDuration(form.songDuration.value);
+    console.log(this.song);
 
     // call controller - NOTE: In a 'true' MVC the controller would register an event listener on the view, and get notified that way.
     controller.updateSong(this.song);

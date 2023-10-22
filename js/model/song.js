@@ -7,9 +7,9 @@ export class Song {
       enumerable: true,
     });
     this.songName = songName;
-    this.songDuration = this.setDuration(songDuration);
     this.artists = [];
     this.albums = [];
+    this.setDuration(songDuration);
   }
   // #convertDuration(duration) {
   //   const [hours, minutes, seconds] = duration.split(":").map(Number);
@@ -27,7 +27,7 @@ export class Song {
   }
   setDuration(duration) {
     const [hours, minutes, seconds] = duration.split(":").map(Number);
-    return hours * 60 * 60 + minutes * 60 + seconds;
+    this.songDuration = hours * 60 * 60 + minutes * 60 + seconds;
   }
   addArtist(artist) {
     this.artists.push(artist);

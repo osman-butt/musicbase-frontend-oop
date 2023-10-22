@@ -53,7 +53,7 @@ async function renderLists() {
   await getData();
   // console.log(artistList);
   // console.log(songList);
-  console.log(albumList);
+  // console.log(albumList);
   // Create list component and render
   const artistsView = new ListRenderer(
     artistList,
