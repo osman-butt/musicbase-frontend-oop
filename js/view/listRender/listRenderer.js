@@ -113,7 +113,7 @@ export class ListRenderer {
 
     // select between sortFunctions, depending on the type on the sortBy property in the first item in the list
     const sortFunction =
-      typeof this.items[0].item[this.sortBy] === "string"
+      typeof this.items[0]?.item[this.sortBy] === "string"
         ? stringSortFunction
         : valueSortFunction;
 
