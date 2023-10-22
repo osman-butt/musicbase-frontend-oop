@@ -1,5 +1,5 @@
 import { Dialog } from "./dialog.js";
-import { dateConfigForm } from "../../utility/dateConfig.js";
+import { dateConfig } from "../../utility/dateConfig.js";
 import * as controller from "../../../app.js";
 
 export class AlbumUpdateDialog extends Dialog {
@@ -24,12 +24,18 @@ export class AlbumUpdateDialog extends Dialog {
 
   setAlbum(album) {
     this.album = album;
+
+    const timezoneOffset = album.albumReleaseDate.getTimezoneOffset();
+    const adjustedDate = new Date(
+      album.albumReleaseDate.getTime() - timezoneOffset * 60 * 1000
+    )
+      .toISOString()
+      .split("T")[0];
+
     const form = this.dialog.querySelector("form");
     form.albumName.value = album.albumName;
     form.albumImage.value = album.albumImage;
-    form.albumReleaseDate.value = album.albumReleaseDate
-      .toISOString()
-      .split("T")[0];
+    form.albumReleaseDate.value = adjustedDate;
   }
 
   setArtistsDropdown(artists) {
@@ -86,9 +92,7 @@ export class AlbumUpdateDialog extends Dialog {
 
     this.album.albumName = form.albumName.value;
     this.album.albumImage = form.albumImage.value;
-    this.album.albumReleaseDate = new Date(form.albumReleaseDate.value)
-      .toISOString()
-      .split("T")[0];
+    this.album.albumReleaseDate = new Date(form.albumReleaseDate.value);
 
     // Add artist(s) to albums object
     const artists = this.listOfArtists;

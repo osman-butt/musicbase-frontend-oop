@@ -256,12 +256,18 @@ export class RestAPI {
   }
   static async updateAlbum(album) {
     const id = album.albumId;
+    const timezoneOffset = album.albumReleaseDate.getTimezoneOffset();
+    const adjustedDate = new Date(
+      album.albumReleaseDate.getTime() - timezoneOffset * 60 * 1000
+    )
+      .toISOString()
+      .split("T")[0];
     const body = {
       albumName: album.albumName,
       albumImage: album.albumImage,
       albumReleaseDate:
         album.albumReleaseDate instanceof Date
-          ? album.albumReleaseDate.toISOString().split("T")[0]
+          ? adjustedDate
           : album.albumReleaseDate,
       artists: album.artists.map(a => a.artistId),
       songs: album.songs.map(s => s.songId),
