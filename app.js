@@ -23,9 +23,6 @@ let songList = [];
 let albumList = [];
 
 // View
-// let artistsView = null;
-// let songsView = null;
-// let albumsView = null;
 let createArtistDialog = null;
 let updateArtistDialog = null;
 let detailArtistDialog = null;
@@ -51,9 +48,6 @@ async function initViews() {
 
 async function renderLists() {
   await getData();
-  // console.log(artistList);
-  // console.log(songList);
-  // console.log(albumList);
   // Create list component and render
   const artistsView = new ListRenderer(
     artistList,

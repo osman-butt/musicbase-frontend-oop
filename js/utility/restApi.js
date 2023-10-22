@@ -10,7 +10,7 @@ export class RestAPI {
     this.songList = [];
     this.albumList = [];
   }
-  static endpoint = "http://localhost:3000/api/v2";
+  static endpoint = "https://musicbase-app.azurewebsites.net/api/v2";
   // Get data
   async fetchSongs() {
     const resp = await fetch(`${RestAPI.endpoint}/songs`);
