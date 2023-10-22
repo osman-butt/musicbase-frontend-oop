@@ -9,6 +9,7 @@ export class Song {
     this.songName = songName;
     this.songDuration = this.setDuration(songDuration);
     this.artists = [];
+    this.albums = [];
   }
   // #convertDuration(duration) {
   //   const [hours, minutes, seconds] = duration.split(":").map(Number);
@@ -31,5 +32,8 @@ export class Song {
   addArtist(artist) {
     this.artists.push(artist);
     artist.addSong(this);
+  }
+  addAlbum(album) {
+    this.albums.push(album);
   }
 }

@@ -15,11 +15,12 @@ export class Album {
   // Methods
   addArtist(artist) {
     this.artists.push(artist);
-    // artist.addAlbum(this);
+    artist.addAlbum(this);
   }
 
   addSong(song) {
     this.songs.push(song);
+    song.addAlbum(this);
   }
 
   removeSong(song) {

@@ -11,9 +11,13 @@ export class Artist {
     this.artistImage = artistImage;
     this.artistDescription = artistDescription;
     this.songs = [];
+    this.albums = [];
   }
   // Methods
   addSong(song) {
     this.songs.push(song);
+  }
+  addAlbum(album) {
+    this.albums.push(album);
   }
 }

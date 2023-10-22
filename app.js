@@ -23,6 +23,9 @@ let songList = [];
 let albumList = [];
 
 // View
+// let artistsView = null;
+// let songsView = null;
+// let albumsView = null;
 let createArtistDialog = null;
 let updateArtistDialog = null;
 let detailArtistDialog = null;
@@ -63,12 +66,20 @@ async function renderLists() {
   );
   songsView.render();
 
-  const albumView = new ListRenderer(
+  const albumsView = new ListRenderer(
     albumList,
     "#albums-container tbody",
     AlbumRenderer
   );
-  albumView.render();
+  albumsView.render();
+  document.querySelector("#search-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const form = e.target;
+    const searchValue = form.search.value;
+    albumsView.setSearch(searchValue);
+    songsView.setSearch(searchValue);
+    artistsView.setSearch(searchValue);
+  });
 }
 
 function renderDialogs() {
