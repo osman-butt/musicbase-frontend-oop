@@ -169,7 +169,7 @@ input[type="search"]:focus {
   width: 250px;
 }
 
-#search-prop {
+#searchprop {
   border-radius: 1em;
   border: 1px solid rgb(184, 184, 184);
   padding: 0.7em;
