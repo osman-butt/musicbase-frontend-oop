@@ -1,9 +1,12 @@
 :root {
   --primary-color: #f8f7f3;
-  /* --secondary-color: rgb(89, 114, 83); */
-  --secondary-color: rgb(202, 202, 202);
+  /* --primary-color: rgb(218, 223, 218); */
+  --secondary-color: rgb(89, 114, 83);
+  /* --secondary-color: rgb(202, 202, 202); */
   --accent-color: #fcccff;
   --font-color: #000000;
+  --font-secondary-color: #fcccff;
+  --background: rgb(218, 223, 218);
 }
 
 body {
@@ -82,6 +85,11 @@ nav {
   z-index: 10;
   top: 0;
   display: none;
+  color: var(--primary-color);
+}
+
+i:hover {
+  opacity: 0.6;
 }
 
 @media (min-width: 900px) {
@@ -102,6 +110,7 @@ nav {
   font-size: 20px;
   font-weight: bolder;
   margin-left: 1em;
+  color: var(--primary-color);
 }
 
 a {
@@ -125,8 +134,12 @@ a {
 
 /* Main Content */
 main {
-  /* min-height: 100vh; */
+  min-height: 100vh;
   margin: 1em;
+}
+
+footer {
+  width: 90vw;
 }
 
 @media (min-width: 900px) {
@@ -263,12 +276,22 @@ tr {
 }
 
 #songs-container::-webkit-scrollbar-thumb {
-  background-color: #bebebe; /* color of the scroll thumb */
-  border-radius: 20px; /* roundness of the scroll thumb */
-  border: 4px solid var(--primary-color); /* creates padding around scroll thumb */
+  background-color: #bebebe;
+  border-radius: 20px;
+  border: 4px solid var(--primary-color);
 }
 #songs-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+#album-songlist::-webkit-scrollbar {
   width: 16px; /* width of the entire scrollbar */
+}
+
+#album-songlist::-webkit-scrollbar-thumb {
+  background-color: #bebebe; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 4px solid white; /* creates padding around scroll thumb */
 }
 
 .artist-item {
