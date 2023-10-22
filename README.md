@@ -47,5 +47,5 @@ The app should now be running in your default web browser.
 ## Local development
 * First install the backend from [here](https://github.com/osman-butt/musicbase-backend).
 * Follow the Local installation guide from [here](https://github.com/osman-butt/musicbase-backend/blob/main/README.md)
-* Change the ```endpoint``` variable in the frontend project ```musicbase-frontend/modules/rest-services.js```.
+* Change the ```endpoint``` variable in the frontend project ```musicbase-frontend-oop/js/utility/restApi.js```.
 * The frontend now uses the local MySQL database.
