@@ -9,12 +9,12 @@ export class ArtistCreateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h3>Create artist</h3>
         <form action="" method="dialog" id="create-artist-form">
-          <label for="create-artistName">Name:</label>
-          <input type="text" id="create-artistName" name="artistName" />
-          <label for="create-artistImage">Image url:</label>
-          <input type="text" id="create-artistImage" name="artistImage" />
-          <label for="create-artistDescription">Description :</label>
-          <input
+          <label class="dialog-form-label" for="create-artistName">Name:</label>
+          <input class="dialog-form-input" type="text" id="create-artistName" name="artistName" />
+          <label class="dialog-form-label" for="create-artistImage">Image url:</label>
+          <input class="dialog-form-input" type="text" id="create-artistImage" name="artistImage" />
+          <label class="dialog-form-label" for="create-artistDescription">Description :</label>
+          <input class="dialog-form-input"
             type="text"
             id="create-artistDescription"
             name="artistDescription"

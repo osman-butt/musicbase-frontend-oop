@@ -9,9 +9,9 @@ export class ArtistUpdateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h1>Update artist</h1>
       <form action="" method="dialog" id="update-form">
-        <label for="update-artistName">Name:</label> <input type="text" id="update-artistName" name="artistName">
-        <label for="update-artistImage">Image:</label> <input type="text" id="update-artistImage" name="artistImage">
-        <label for="update-artistDescription">Description:</label> <input type="text" id="update-artistDescription" name="artistDescription">
+        <label class="dialog-form-label" for="update-artistName">Name:</label> <input class="dialog-form-input" type="text" id="update-artistName" name="artistName">
+        <label class="dialog-form-label" for="update-artistImage">Image:</label> <input class="dialog-form-input" type="text" id="update-artistImage" name="artistImage">
+        <label class="dialog-form-label" for="update-artistDescription">Description:</label> <input class="dialog-form-input" type="text" id="update-artistDescription" name="artistDescription">
         <button class="button" data-action="update">Update</button>
       </form>`;
 

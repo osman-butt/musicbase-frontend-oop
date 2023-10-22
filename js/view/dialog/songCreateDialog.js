@@ -9,14 +9,14 @@ export class SongCreateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h3>Create song</h3>
         <form action="" method="dialog" id="create-song-form">
-          <label for="create-songName">Song name:</label>
-          <input type="text" id="create-songName" name="songName" />
-          <label for="create-albumDuration">Song Duration:</label>
-          <input type="text" id="create-songDuration" name="songDuration" placeholder="ex. 00:03:04"/>
-          <label for="create-song-artists">Select artists:</label>
-          <select multiple name="createsongartists" id="create-song-artists"></select>
-          <label for="create-song-feat-artists">Select Feat. artists:</label>
-          <select multiple name="createsongfeatartists" id="create-song-feat-artists"></select>
+          <label class="dialog-form-label" for="create-songName">Song name:</label>
+          <input class="dialog-form-input" type="text" id="create-songName" name="songName" />
+          <label class="dialog-form-label" for="create-albumDuration">Song Duration:</label>
+          <input class="dialog-form-input" type="text" id="create-songDuration" name="songDuration" placeholder="ex. 00:03:04"/>
+          <label class="dialog-form-label" for="create-song-artists">Select artists:</label>
+          <select class="dialog-form-select" multiple name="createsongartists" id="create-song-artists"></select>
+          <label class="dialog-form-label" for="create-song-feat-artists">Select Feat. artists:</label>
+          <select class="dialog-form-select" multiple name="createsongfeatartists" id="create-song-feat-artists"></select>
           <button class="button" data-action="create">Create</button>
         </form>`;
 

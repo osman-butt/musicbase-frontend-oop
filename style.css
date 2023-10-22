@@ -64,6 +64,16 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.hover-effect {
+  opacity: 0.8;
+}
+
+.hover-effect:hover {
+  cursor: pointer;
+  opacity: 1;
+  font-weight: bold;
+}
+
 /* Navigation bar */
 nav {
   background-color: var(--secondary-color);
@@ -98,13 +108,13 @@ a {
   color: var(--font-color);
   display: block;
   text-decoration: none;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
-a:hover {
+/* a:hover {
   opacity: 1;
   font-weight: bold;
-}
+} */
 
 #sidebar-links {
   display: grid;
@@ -157,6 +167,14 @@ input[type="search"] {
 
 input[type="search"]:focus {
   width: 250px;
+}
+
+#search-prop {
+  border-radius: 1em;
+  border: 1px solid rgb(184, 184, 184);
+  padding: 0.7em;
+  background-color: var(--primary-color);
+  font-size: 14px;
 }
 
 @media (min-width: 900px) {
@@ -276,6 +294,7 @@ tr {
 
 .album-name:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 /* DIALOGS */
@@ -283,7 +302,7 @@ dialog {
   border: none;
   border-radius: 1em;
   width: 80vw;
-  max-height: 90vh;
+  max-height: 80vh;
   user-select: none;
 }
 
@@ -312,13 +331,12 @@ dialog {
 
 /* FORM */
 
-form label {
+/* form label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
 }
 
-/* Style for input fields */
 form input {
   width: 100%;
   padding: 8px;
@@ -327,6 +345,26 @@ form input {
 }
 
 form select {
+  width: 100%;
+  display: block;
+  margin-bottom: 1em;
+  padding: 0.5em;
+} */
+
+.dialog-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.dialog-form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.dialog-form-select {
   width: 100%;
   display: block;
   margin-bottom: 1em;

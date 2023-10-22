@@ -8,8 +8,8 @@ export class SongUpdateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h1>Update song</h1>
       <form action="" method="dialog" id="update-form">
-        <label for="update-songName">Name:</label> <input type="text" id="update-songName" name="songName" >
-        <label for="update-songDuration">Duration:</label> <input type="text" id="update-songDescription" name="songDuration">
+        <label class="dialog-form-label" for="update-songName">Name:</label> <input class="dialog-form-input" type="text" id="update-songName" name="songName" >
+        <label class="dialog-form-label" for="update-songDuration">Duration:</label> <input class="dialog-form-input" type="text" id="update-songDescription" name="songDuration">
         <button class="button" data-action="update">Update</button>
       </form>`;
 

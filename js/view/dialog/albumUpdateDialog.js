@@ -9,13 +9,13 @@ export class AlbumUpdateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h1>Update album</h1>
       <form action="" method="dialog" id="update-form">
-        <label for="update-albumName">Name:</label> <input type="text" id="update-albumName" name="albumName">
-        <label for="update-albumImage">Image:</label> <input type="text" id="update-albumImage" name="albumImage">
-        <label for="update-albumReleaseDate">Releasedate:</label> <input type="text" id="update-albumReleaseDate" name="albumReleaseDate">
-        <label for="update-album-artists">Select artists:</label>
-        <select multiple name="updatealbumartists" id="update-album-artists"></select>
-        <label for="update-album-songs">Select songs:</label>
-        <select multiple name="updatealbumsongs" id="update-album-songs"></select>
+        <label class="dialog-form-label" for="update-albumName">Name:</label> <input class="dialog-form-input" type="text" id="update-albumName" name="albumName">
+        <label class="dialog-form-label" for="update-albumImage">Image:</label> <input class="dialog-form-input" type="text" id="update-albumImage" name="albumImage">
+        <label class="dialog-form-label" for="update-albumReleaseDate">Releasedate:</label> <input class="dialog-form-input" type="text" id="update-albumReleaseDate" name="albumReleaseDate">
+        <label class="dialog-form-label" for="update-album-artists">Select artists:</label>
+        <select class="dialog-form-select" multiple name="updatealbumartists" id="update-album-artists"></select>
+        <label class="dialog-form-label" for="update-album-songs">Select songs:</label>
+        <select class="dialog-form-select" multiple name="updatealbumsongs" id="update-album-songs"></select>
         <button class="button" data-action="update">Update</button>
       </form>`;
 

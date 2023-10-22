@@ -8,7 +8,7 @@ export class ArtistRenderer extends ItemRenderer {
         <img src=${
           artist?.artistImage ? artist?.artistImage : ""
         } alt="" data-action='show'>
-        <p data-action='show'>${artist.artistName}</p>
+        <p style="font-weight: 500;" data-action='show'>${artist.artistName}</p>
     </article>`;
     return html;
   }

@@ -9,21 +9,21 @@ export class AlbumCreateDialog extends Dialog {
       `<button class="simple-btn"><i class="fas fa-times" data-action="close"></i></button>
       <h3>Create album</h3>
         <form action="" method="dialog" id="create-album-form">
-          <label for="create-albumName">Album name:</label>
-          <input type="text" id="create-albumName" name="albumName" />
-          <label for="create-albumImage">Image url:</label>
-          <input type="text" id="create-albumImage" name="albumImage" />
-          <label for="create-albumReleaseDate">Releasedate :</label>
-          <input
+          <label class="dialog-form-label" for="create-albumName">Album name:</label>
+          <input class="dialog-form-input" type="text" id="create-albumName" name="albumName" />
+          <label class="dialog-form-label" for="create-albumImage">Image url:</label>
+          <input class="dialog-form-input" type="text" id="create-albumImage" name="albumImage" />
+          <label class="dialog-form-label" for="create-albumReleaseDate">Releasedate :</label>
+          <input class="dialog-form-input"
             type="text"
             id="create-albumReleaseDate"
             name="albumReleaseDate"
             placeholder="YYYY-MM-DD"
           />
-          <label for="create-album-artists">Select artists:</label>
-          <select multiple name="createalbumartists" id="create-album-artists"></select>
-          <label for="create-album-songs">Select songs:</label>
-          <select multiple name="createalbumsongs" id="create-album-songs"></select>
+          <label class="dialog-form-label" for="create-album-artists">Select artists:</label>
+          <select class="dialog-form-select" multiple name="createalbumartists" id="create-album-artists"></select>
+          <label class="dialog-form-label" for="create-album-songs">Select songs:</label>
+          <select class="dialog-form-select" multiple name="createalbumsongs" id="create-album-songs"></select>
           <button class="button" data-action="create">Create</button>
         </form>`;
 
