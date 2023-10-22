@@ -3,7 +3,7 @@
 MusicBase is a web application that allows users to search for artists, albums, and songs. It also provides full CRUD functionality and a user-friendly interface to explore and discover music.
 
 
-![UI](https://github.com/osman-butt/musicbase-frontend/blob/main/images/ui.png)
+![UI](https://github.com/osman-butt/musicbase-frontend-oop/blob/main/assets/images/ui.PNG)
 
 
 ## Features
