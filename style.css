@@ -371,3 +371,15 @@ form select {
   margin-bottom: 1em;
   padding: 0.5em;
 }
+
+.sorting th.selected {
+  text-decoration: underline;
+}
+
+.sorting th.selected[data-sort-direction="asc"]::after {
+  content: "▲";
+}
+
+.sorting th.selected[data-sort-direction="desc"]::after {
+  content: "▼";
+}

@@ -76,16 +76,28 @@
         <section id="data-container">
           <section id="artists-song-container">
             <section id="artists-container">
-              <!-- Artists items goes here             -->
+              <!-- Artists items goes here -->
             </section>
             <section id="songs-container" class="vertical-scroll">
               <table>
                 <thead>
-                  <tr>
-                    <th>Song</th>
+                  <tr class="sorting">
+                    <th
+                      data-action="sort"
+                      data-sort-direction="asc"
+                      data-sort-by="songName"
+                    >
+                      Song
+                    </th>
                     <td></td>
                     <td></td>
-                    <th>Duration</th>
+                    <th
+                      data-action="sort"
+                      data-sort-direction="asc"
+                      data-sort-by="songDuration"
+                    >
+                      Duration
+                    </th>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -100,11 +112,24 @@
           </section>
           <table id="albums-container">
             <thead>
-              <tr>
-                <th class="col-1">Album</th>
+              <tr class="sorting">
+                <th
+                  class="col-1"
+                  data-action="sort"
+                  data-sort-direction="asc"
+                  data-sort-by="albumName"
+                >
+                  Album
+                </th>
                 <th></th>
                 <th>#Songs</th>
-                <th>ReleaseDate</th>
+                <th
+                  data-action="sort"
+                  data-sort-direction="asc"
+                  data-sort-by="albumReleaseDate"
+                >
+                  ReleaseDate
+                </th>
                 <th></th>
                 <th></th>
               </tr>

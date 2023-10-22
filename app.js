@@ -80,6 +80,44 @@ async function renderLists() {
     songsView.setSearch(searchValue);
     artistsView.setSearch(searchValue);
   });
+
+  // initialize sort buttons
+  document
+    .querySelector("#albums-container")
+    .querySelectorAll("[data-action='sort']")
+    .forEach(button =>
+      button.addEventListener("click", () => {
+        // before sorting - remove .selected from previous selected header
+        document
+          .querySelector("[data-action=sort].selected")
+          ?.classList.remove("selected");
+
+        albumsView.sort(button.dataset.sortBy, button.dataset.sortDirection);
+
+        // indicate selected sort header
+        button.classList.add("selected");
+        // indicate sort-direction on button
+        button.dataset.sortDirection = albumsView.sortDir;
+      })
+    );
+  document
+    .querySelector("#songs-container")
+    .querySelectorAll("[data-action='sort']")
+    .forEach(button =>
+      button.addEventListener("click", () => {
+        // before sorting - remove .selected from previous selected header
+        document
+          .querySelector("[data-action=sort].selected")
+          ?.classList.remove("selected");
+
+        songsView.sort(button.dataset.sortBy, button.dataset.sortDirection);
+
+        // indicate selected sort header
+        button.classList.add("selected");
+        // indicate sort-direction on button
+        button.dataset.sortDirection = songsView.sortDir;
+      })
+    );
 }
 
 function renderDialogs() {
